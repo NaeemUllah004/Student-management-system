@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Student Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>🎓 SMS Dashboard</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="add-student.html" class="nav-link">Add Student</a>
+                <a href="index.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3 id="totalStudents">0</h3>
+                    <p>Total Students</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <h3 id="activeStudents">0</h3>
+                    <p>Active Students</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-info">
+                    <h3 id="departments">0</h3>
+                    <p>Departments</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <h2>Student Records</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="🔍 Search by name, ID, or email..." class="search-input">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="student-table" id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Department</th>
+                            <th>Semester</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Student</h2>
+            <form id="editStudentForm">
+                <input type="hidden" id="edit_id" name="id">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit_student_id">Student ID</label>
+                        <input type="text" id="edit_student_id" name="student_id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_name">Full Name</label>
+                        <input type="text" id="edit_name" name="name" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit_email">Email</label>
+                        <input type="email" id="edit_email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_phone">Phone</label>
+                        <input type="tel" id="edit_phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit_department">Department</label>
+                        <select id="edit_department" name="department" required>
+                            <option value="">Select Department</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Business Administration">Business Administration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_semester">Semester</label>
+                        <select id="edit_semester" name="semester" required>
+                            <option value="">Select Semester</option>
+                            <option value="1">1st Semester</option>
+                            <option value="2">2nd Semester</option>
+                            <option value="3">3rd Semester</option>
+                            <option value="4">4th Semester</option>
+                            <option value="5">5th Semester</option>
+                            <option value="6">6th Semester</option>
+                            <option value="7">7th Semester</option>
+                            <option value="8">8th Semester</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit_status">Status</label>
+                    <select id="edit_status" name="status" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Update Student</button>
+                    <button type="button" class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

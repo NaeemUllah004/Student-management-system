@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Management System - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>🎓 Student Management System</h1>
+                <p>University Student Information Portal</p>
+            </div>
+            
+            <form id="loginForm" action="php/login.php" method="POST" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                    <span class="error-message" id="usernameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <button type="submit" class="btn-primary">Login</button>
+                
+                <div class="demo-credentials">
+                    <p><strong>Demo Credentials:</strong></p>
+                    <p>Username: <code>admin</code> | Password: <code>admin123</code></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/validation.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
